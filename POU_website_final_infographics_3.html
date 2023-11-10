@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .chart-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top:-180px; /* Adjust the margin-top as needed */
+        }
+
+        .graph-container {
+            flex: 1;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            text-align: right;
+        }
+
+        .graph {
+            width: 80%; /* Adjust the width as needed */
+        }
+
+        .research-info {
+            flex: 1;
+            padding: 10px;
+            box-sizing: border-box;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- New chart container for History Rates data -->
+    <div class="chart-container">
+        <h2>Historical Timeline of Laws</h2>
+        <canvas id="historyRateChart" width="600" height="300" class="graph"></canvas>
+<style>
+ p {
+        margin-bottom: 10px; /* Adjust the value to set the desired space between paragraphs */
+    }
+</style>
+
+        <p1><strong>1942:</strong>
+In 1942, India was still under British colonial rule. The struggle for independence was at its peak, and legal developments were intertwined with the broader political context. </p1>
+<p2>The British administration had implemented various laws, including the Criminal Tribes Act of 1871, which stigmatized certain communities. The legal framework at this time laid the groundwork for post-independence reforms.</p2>
+
+<p3><strong>1951:</strong>
+ In 1951, the first census was conducted post-independence, which included the identification of Scheduled Castes and Scheduled Tribes. </p3>
+
+<p4><strong>1992:</strong>In 1992, one of the significant developments was the implementation of the 73rd Amendment to the Constitution, which decentralized power to the local level through Panchayati Raj institutions. </p4>
+<p5>This had implications for marginalized communities as it aimed at ensuring their participation in grassroots governance. </p5>
+
+<p6><strong>2019:</strong>In 2019, the legal landscape witnessed discussions and debates around the constitutional validity of affirmative action policies, particularly with respect to reservations in education and employment. </p6>
+
+    </div>
+
+    <script>
+        // Data for History Rates
+        var statesHistory = [
+            "1942", "1951", "1992", "2019"
+        ];
+
+        var historyRateData = [
+            8.5, 15, 50, 17
+        ];
+
+        // Create a bar chart for History Rates data
+        var historyRateCtx = document.getElementById('historyRateChart').getContext('2d');
+        var historyRateChart = new Chart(historyRateCtx, {
+            type: 'bar',
+            data: {
+                labels: statesHistory,
+                datasets: [{
+                    label: 'History Rates',
+                    data: historyRateData,
+                    backgroundColor: 'rgba(75, 192, 192, 0.5)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: false,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

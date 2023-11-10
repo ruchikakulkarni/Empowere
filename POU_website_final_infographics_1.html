@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .chart-container {
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            text-align: center;
+            margin-top: -80px;
+        }
+
+        .graph {
+            width: 600px;
+            height: 300px;
+        }
+
+        .research-info {
+            padding: 10px;
+            box-sizing: border-box;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Chart container for Literacy Rates data -->
+    <div class="chart-container">
+        <h2>Literacy Rates</h2>
+        <p>Literacy Rates Across Different States in India</p>
+        <canvas id="literacyRateChart" class="graph"></canvas>
+    </div>
+
+    <div class="research-info">
+        <p1>The literacy rates among marginalized communities in India vary, illustrating the diverse educational landscape.</p1><br>
+        <p2>Some regions demonstrate higher literacy rates, suggesting improved access to education, while others face challenges, resulting in comparatively lower literacy rates.</p2><br>
+        <p3>Addressing these disparities is crucial for promoting inclusive development and ensuring that education acts as a catalyst for positive change across different communities in the country.</p3><br>
+    </div>
+
+    <script>
+        // Data for Literacy Rates
+        var statesLiteracy = [
+            "Uttar Pradesh", "Maharashtra", "Bihar", "West Bengal", "Andhra Pradesh",
+            "Telangana", "Madhya Pradesh", "Tamil Nadu", "Rajasthan", "Karnataka", "Gujarat", "Odisha", "Kerala", "Jharkhand", "Assam", "Chhattisgarh", "Jammu and Kashmir", "Uttarakhand", "Himachal Pradesh", "Tripura", "Meghalaya", "Manipur", "Nagaland", "Goa", "Arunachal Pradesh", "Mizoram", "Sikkim", "Andaman and Nicobar Islands", "Daman and Diu", "Lakshadweep"
+        ];
+
+        var literacyRateData = [
+            55.7, 65.7, 51.1, 57.9, 48.8, 49.5, 50.6, 54.3, 52.8, 62.1, 62.5, 52.2, 75.8, 57.1, 72.1, 59.1, 50.6, 73.9, 73.6, 79.1, 74.5, 72.6, 80, 79.1, 64.6, 91.5, 79.7, 75.6, 78.8, 91.7
+        ];
+
+        // Create a bar chart for Literacy Rates data
+        var literacyRateCtx = document.getElementById('literacyRateChart').getContext('2d');
+        var literacyRateChart = new Chart(literacyRateCtx, {
+            type: 'bar',
+            data: {
+                labels: statesLiteracy,
+                datasets: [{
+                    label: 'Literacy Rates',
+                    data: literacyRateData,
+                    backgroundColor: 'rgba(192, 128, 255, 0.5)',
+                    borderColor: 'rgba(192, 128, 225, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: false,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<html>
+<head>
+   <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .chart-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px; /* Adjust the margin-top as needed */
+        }
+
+        .graph-container {
+            flex: 1;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            text-align: right;
+        }
+
+        .graph {
+            width: 80%; /* Adjust the width as needed */
+        }
+
+        .research-info {
+            flex: 1;
+            padding: 10px;
+            box-sizing: border-box;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            text-align: center;
+            max-width: 600px; /* Adjust the max-width as needed */
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- New chart container for History Rates data -->
+    <div class="chart-container">
+        <h2>Number of Marginalized Community</h2>
+        <canvas id="marginalizedCommunityChart" width="900" height="400" class="graph"></canvas>
+    </div>
+
+    <!-- New chart container for Number of Marginalized Community data -->
+    <div class="chart-container research-info">
+        <p1>India is home to a diverse array of marginalized communities, spread across various states and regions. </p1>
+        <p4>These communities include Scheduled Castes (SCs), Scheduled Tribes (STs), and Other Backward Classes (OBCs), among others. </p4>
+        <p2>The distribution of marginalized communities varies across states, with certain regions having a higher concentration of specific groups. </p2>
+        <p3>Several factors contribute to the high concentration of marginalized communities such as historical practices, geographical factors, economic disparity, land rights and displacement and cultural diversity.</p3>
+    </div>
+
+    <script>
+        // Data for Number of Marginalized Community
+        var statesCommunity = [
+             "Mizoram", "Nagaland","Meghalaya","Arunachal Pradesh","Manipur","Sikkim","Tripura","Chattisgarh","Jharkhand","Odisha","Madhya Pradesh","Gujarat","Rajasthan","Assam","Goa","Maharashtra","Andhra Pradesh","Karnataka","West Bengal","Himachal Pradesh","Uttarakhand","Kerala","Bihar","Tamil Nadu","Uttar Pradesh"]
+
+        var marginalizedCommunityData = [
+            94.4,86.5,86.1,68.8,40.9,33.8,31.8,30.6,26.2,22.8,21.1,14.8,13.5,12.4,10.2,9.4,7,7,5.8,5.7,2.9,1.5,1.3,1.1,0.6
+        ];
+
+        // Create a bar chart for Number of Marginalized Community data
+        var marginalizedCommunityCtx = document.getElementById('marginalizedCommunityChart').getContext('2d');
+        var marginalizedCommunityChart = new Chart(marginalizedCommunityCtx, {
+            type: 'bar',
+            data: {
+                labels: statesCommunity,
+                datasets: [{
+                    label: 'Number of Marginalized Community',
+                    data: marginalizedCommunityData,
+                    backgroundColor: 'rgba(75, 192, 192, 0.5)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: false,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
